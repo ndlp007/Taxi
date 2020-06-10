@@ -80,7 +80,7 @@ namespace Taxi.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Plaque")] TaxiEntity taxiEntity)
+        public async Task<IActionResult> Edit(int id, TaxiEntity taxiEntity)
         {
             if (id != taxiEntity.Id)
             {
