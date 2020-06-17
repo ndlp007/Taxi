@@ -25,7 +25,7 @@ namespace Taxi.Web.Data
         {
             await _dataContext.Database.EnsureCreatedAsync();
             await CheckRolesAsync();
-            UserEntity admin = await CheckUserAsync("1010", "Neil", "Linares", "neilinares@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
+            UserEntity admin = await CheckUserAsync("1010", "Neil", "Linares", "neilinaresp@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
             UserEntity driver = await CheckUserAsync("2020", "Neil", "Linares", "osezno666@hotmail.es", "350 634 2747", "Calle Luna Calle Sol", UserType.Driver);
             UserEntity user1 = await CheckUserAsync("3030", "Neil", "Linares", "ndlpaiesec@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
             UserEntity user2 = await CheckUserAsync("4040", "Juan", "Quintanilla", "jqcalderon@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.User);
@@ -41,7 +41,7 @@ namespace Taxi.Web.Data
             string address,
             UserType userType)
         {
-            UserEntity user = await _userHelper.GetUserByEmailAsync(email);
+            var user = await _userHelper.GetUserByEmailAsync(email);
             if (user == null)
             {
                 user = new UserEntity
